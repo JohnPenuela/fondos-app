@@ -1,0 +1,1 @@
+export const CANTIDAD_INICIAL = 500000;

@@ -1,0 +1,13 @@
+.tabla-transacciones {
+  padding: 1.25rem;
+  border-radius: var(--p-border-radius-md, 8px);
+  border: 1px solid var(--p-content-border-color);
+  background: var(--p-surface-900);
+}
+
+.tabla-transacciones__placeholder {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--p-text-muted-color);
+}

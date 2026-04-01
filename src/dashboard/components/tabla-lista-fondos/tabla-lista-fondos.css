@@ -1,0 +1,37 @@
+.tabla-fondos {
+  width: 100%;
+}
+
+.th-acciones {
+  text-align: center;
+}
+
+.cell-acciones {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.th-label {
+  margin-inline-end: 0.35rem;
+}
+
+.cell-nombre {
+  font-variant-numeric: tabular-nums;
+  word-break: break-word;
+}
+
+.categoria-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--p-border-radius-md, 6px);
+  background: var(--p-content-hover-background, color-mix(in srgb, var(--p-primary-color, #3b82f6) 12%, transparent));
+  color: var(--p-text-color, inherit);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.empty-msg {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--p-text-muted-color);
+}

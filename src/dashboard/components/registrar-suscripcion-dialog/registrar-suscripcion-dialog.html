@@ -1,0 +1,71 @@
+<p-dialog
+  [header]="'Registrar suscripción'"
+  [modal]="true"
+  [style]="{ width: 'min(28rem, 100vw)' }"
+  [draggable]="false"
+  [resizable]="false"
+  [closable]="true"
+  [dismissableMask]="true"
+  [visible]="visible"
+  (visibleChange)="onVisibleChange($event)"
+  styleClass="registrar-suscripcion-dialog"
+>
+  @if (fondo) {
+    <div class="rsd-body">
+      <p class="rsd-fondo">
+        <span class="rsd-fondo-label">Fondo</span>
+        <span class="rsd-fondo-nombre">{{ fondo.nombre }}</span>
+      </p>
+
+      <div class="rsd-field">
+        <p class="rsd-question">¿Está seguro de realizar la transacción?</p>
+        <div class="rsd-checkbox-wrap">
+          <p-checkbox
+            [(ngModel)]="confirmoTransaccion"
+            inputId="rsd-confirmo"
+            [binary]="true"
+          />
+          <label for="rsd-confirmo" class="rsd-checkbox-label">
+            Sí, confirmo que deseo continuar con esta operación
+          </label>
+        </div>
+      </div>
+
+      <fieldset class="rsd-field rsd-fieldset">
+        <legend class="rsd-legend">Método de notificación</legend>
+        <p class="rsd-hint">¿Cómo desea recibir la confirmación?</p>
+        <div class="rsd-radios">
+          <div class="rsd-radio-row">
+            <p-radioButton
+              name="notificacion"
+              value="email"
+              [(ngModel)]="metodoNotificacion"
+              inputId="rsd-email"
+            />
+            <label for="rsd-email" class="rsd-radio-label">Correo electrónico</label>
+          </div>
+          <div class="rsd-radio-row">
+            <p-radioButton
+              name="notificacion"
+              value="sms"
+              [(ngModel)]="metodoNotificacion"
+              inputId="rsd-sms"
+            />
+            <label for="rsd-sms" class="rsd-radio-label">SMS</label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  }
+
+  <ng-template pTemplate="footer">
+    <div class="rsd-footer">
+      <p-button label="Cancelar" severity="secondary" (onClick)="cancelar()"/>
+      <p-button
+        label="Confirmar"
+        [disabled]="!confirmoTransaccion || !fondo"
+        (onClick)="registrar()"
+      />
+    </div>
+  </ng-template>
+</p-dialog>

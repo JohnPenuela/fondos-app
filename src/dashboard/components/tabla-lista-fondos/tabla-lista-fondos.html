@@ -1,0 +1,70 @@
+
+<div class="tabla-fondos">
+  <p-table
+    [value]="fondos"
+    [sortMode]="'single'"
+    [tableStyle]="{ 'min-width': '56rem' }"
+    styleClass="p-datatable-striped"
+    [paginator]="true"
+    [rows]="10"
+    [rowsPerPageOptions]="[5, 10, 25]"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} fondos"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id" style="width: 6rem">
+          <span class="th-label">ID</span>
+          <p-sortIcon field="id" />
+        </th>
+        <th pSortableColumn="nombre">
+          <span class="th-label">Nombre</span>
+          <p-sortIcon field="nombre" />
+        </th>
+        <th pSortableColumn="montoMinimo" style="width: 12rem">
+          <span class="th-label">Monto mínimo</span>
+          <p-sortIcon field="montoMinimo" />
+        </th>
+        <th pSortableColumn="categoria" style="width: 10rem">
+          <span class="th-label">Categoría</span>
+          <p-sortIcon field="categoria" />
+        </th>
+        <th style="width: 11rem" class="th-acciones">
+          <span class="th-label">Acción</span>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-fondo>
+      <tr>
+        <td>{{ fondo.id }}</td>
+        <td class="cell-nombre">{{ fondo.nombre }}</td>
+        <td>{{ fondo.montoMinimo | currency:'COP':'symbol-narrow':'1.0-0':'es-CO' }}</td>
+        <td>
+          <span class="categoria-badge">{{ fondo.categoria }}</span>
+        </td>
+        <td class="cell-acciones">
+          <p-button
+            label="Suscribirse"
+            icon="pi pi-check"
+            size="small"
+            (onClick)="abrirRegistroSuscripcion(fondo)"
+          />
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5" class="empty-msg">No hay fondos para mostrar.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <app-registrar-suscripcion-dialog
+    [visible]="dialogVisible()"
+    [fondo]="fondoSeleccionado()"
+    (visibleChange)="onDialogVisibleChange($event)"
+    (confirmar)="onSuscripcionConfirmada.emit($event)"
+  />
+</div>
