@@ -1,0 +1,14 @@
+export default `<!doctype html>
+<html lang="es" class="dark" data-beasties-container="">
+<head>
+  <meta charset="utf-8">
+  <title>FondosApp</title>
+  <base href="/fondos-app/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}html.dark body{background:var(--p-surface-950);color:var(--p-text-color)}html.dark body{margin:0;min-height:100dvh}</style><link rel="stylesheet" href="styles-7LEK62TX.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-7LEK62TX.css"></noscript></head>
+<body ngcm="">
+  <app-root></app-root>
+<link rel="modulepreload" href="chunk-7HDGB2LO.js"><script src="main-JC5HMYIP.js" type="module"></script></body>
+</html>
+`;
